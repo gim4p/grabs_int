@@ -36,7 +36,7 @@ Skewness. Uses median and sorting to reconstruct unimodal grain size distributio
 Method 4 variograms for test grab sample file figge_stat_h.mat:
 <img width="1357" alt="m4crossvar" src="https://github.com/user-attachments/assets/76a49e47-7314-4664-927e-2ce5bc0cbcfe" />
 
-For the test data, theta should be approximately 5, and the nugget appears to be negligible.
+For the test data, theta should be approximately 5.
 
 Method 4 for Interpolating Grain Size Classes in the Test Dataset:
 <img width="1280" alt="m4inttest" src="https://github.com/user-attachments/assets/bd912ad1-c6cd-486a-98d0-6aed02b60288" />
