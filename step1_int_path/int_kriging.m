@@ -1,5 +1,5 @@
 %% co-kriging approach on basis of https://github.com/rckitson/cokriging
-function [Xgrid, Ygrid, sed_param, bathy_param, cross_param] = ...
+function [Xgrid, Ygrid, d_param, bathy_param, sed_param] = ...
     int_kriging(Xdata, Ydata, sedata, bathy, gridresolution, ...
     lob_cross, upb_cross, regr_primary, corr_primary)
 
@@ -42,7 +42,7 @@ n = size(grid_points,1);
 
 ypred_sed   = zeros(n,1); % final co-kriging (sediment)
 ypred_bath  = zeros(n,1); % low fidelity
-ypred_cross = zeros(n,1); % discrepancy
+ypred_d = zeros(n,1); % discrepancy
 
 for i = 1:n
     
@@ -64,23 +64,23 @@ for i = 1:n
     
     ypred_sed(i)   = y;
     ypred_bath(i)  = yL_real;
-    ypred_cross(i) = d_real;
+    ypred_d(i) = d_real;
 end
 
 sedata = mean(sedata) + std(sedata) * ypred_sed;
 ypred_bath = mean(bathy) + std(bathy) * ypred_bath;
-ypred_cross = mean(sedata) + std(sedata) * ypred_cross;
+ypred_d = mean(sedata) + std(sedata) * ypred_d;
 
 %% reshaoe
 sed_param   = reshape(sedata,   size(Xgrid));
 bathy_param = reshape(ypred_bath,  size(Xgrid));
-cross_param = reshape(ypred_cross, size(Xgrid));
+d_param = reshape(ypred_d, size(Xgrid));
 
 %{
 figure; 
 subplot(3,1,1); imagesc(sed_param); title('prim')
 subplot(3,1,2); imagesc(bathy_param); title('sec')
-subplot(3,1,3); imagesc(cross_param); title('cross')
+subplot(3,1,3); imagesc(d_param); title('cross')
 %}
 
 end
