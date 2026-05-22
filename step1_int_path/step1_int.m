@@ -29,6 +29,13 @@ stat_skew(:,1) = stat_combined.skewness_matlab;
 stat_std_dev_um(:,1) = stat_combined.sort_um;
 stat_sort_McL(:,1) = stat_combined.sorting_num_McLaren;
 
+%{
+%% reinserted (was not in repo)
+%% grabs in certain area
+[X,Y,Z,stat_mean,stat_median,stat_skew,stat_std_dev_um,stat_sort_McL,stat_D10,stat_D90,stat_mode_1,stat_modestatus,grabsamplename,grabsampletime] = ...
+    select_grabs_in_modelarea(X,Y,Z,stat_mean,stat_median,stat_skew,stat_std_dev_um,stat_sort_McL,stat_D10,stat_D90,stat_mode_1,stat_modestatus,grabsamplename,grabsampletime);
+%%
+%}
 
 if strcmp(interpolation_method,'CoK')
     %% Co-Kriging
