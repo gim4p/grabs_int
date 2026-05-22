@@ -23,7 +23,7 @@ sc0 = [Xdata, Ydata];
 % high fidelity (primary) = sediment
 se0 = [Xdata, Ydata];
 
-%% MODEL SETTINGS
+%% model settings (func input)
 regr = regr_primary;
 corr = corr_primary;
 
