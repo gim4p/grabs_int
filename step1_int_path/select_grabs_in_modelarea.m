@@ -1,8 +1,6 @@
 function [X,Y,Z,stat_mean,stat_median,stat_skew,stat_sort,stat_sort_McL,stat_D10,stat_D90,stat_mode_1,stat_modestatus,grabsamplename,grabsampletime] = select_grabs_in_modelarea(X,Y,Z,stat_mean,stat_median,stat_skew,stat_sort,stat_sort_McL,stat_D10,stat_D90,stat_mode_1,stat_modestatus,grabsamplename,grabsampletime)
 
-% poly = shaperead('datain/DOI.shp'); % 'clayton_area_polygon.shp' % 'clayton_modelarea_polygon.shp' %
-% poly = shaperead('datain/testpoly.shp');
-poly = shaperead('datain/clayton_modelarea_polygon.shp');
+poly = shaperead('datain/NothSea.shp');
 [in, ~] = inpolygon(X,Y,poly.X,poly.Y);
 idx_in_poly = find(in==1);
 
